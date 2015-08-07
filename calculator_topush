@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+
+<h1>Finally a reliable tool for use in simple mathematical tasks!
+
+<h2>Enter the numbers for your task below
+
+//extra headers just for appeal 
+
+<title>Simple php Calculator</title>
+
+</h2>
+
+</h1>
+
+ 
+
+<form method='post' action='calculator.php'>
+
+//continue using post for as we learned in class…also now with the interphp loop to call itself 
+
+<input type='text' name='value1'>
+
+//inputs are text because the user will enter numbers- won't work well if they write text though at current 
+
+<br>
+
+<input type='text' name='value2'>
+
+//value 2 is second box ...keep it simple 
+
+<br>
+
+<select name='action'>
+
+ //below are the possible options user can choose
+
+<option>+</option>
+
+<option>-</option>
+
+<option>*</option>
+
+<option>/</option>
+
+</select>
+
+ 
+
+//give them a submit button like last week 
+
+<input type='submit' name='submit' value='click'>
+
+</form>
+
+ 
+
+<?php
+
+//using isset function from last week 
+
+  if(isset($_POST['submit'])){
+
+//value 1 corresponds to first box, and value 2 to second box
+
+        $value1 = $_POST['value1'];
+
+        $value2 = $_POST['value2'];
+
+        $action = $_POST['action'];
+
+//now for the if statements…i looked into using switch statements, but went with ifs..maybe a little longer
+
+  if($action=="+"){
+
+        echo "<b> simple answer is: </b> <br>";
+
+        echo $value1+$value2;
+
+        }
+
+ //remember to keep track of indentions 
+
+if($action=="-"){
+
+        echo "<b> simple answer is: </b> <br>";
+
+        echo $value1-$value2;
+
+        }
+
+ 
+
+if($action=="*"){
+
+        echo "<b> simple answer is: </b> <br>";
+
+        echo $value1*$value2;
+
+        }
+
+ 
+
+if($action=="/"){
+
+        echo "<b> simple answer is: </b> <br>";
+
+        echo $value1/$value2;
+
+        }
+
+}
+
+//this method 'worked' but i also looked into doing recursive descent parsers …i think this too would work 
